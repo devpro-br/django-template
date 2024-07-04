@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "devpro-django-template"
+version = "0.1.0"
+description = "Template de projeto Django com as boas práticas da DevPro"
+authors = ["renzo <renzo@dev.pro.br>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = ">4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
