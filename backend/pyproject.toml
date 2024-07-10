@@ -17,6 +17,7 @@ optional = true
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
 pytest-django = "^4.8.0"
+flake8 = "^7.1.0"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "devpro.settings"
