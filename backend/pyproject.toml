@@ -11,6 +11,9 @@ python = "^3.12"
 django = ">4"
 
 
+[tool.poetry.group.dev]
+optional = true
+
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
 pytest-django = "^4.8.0"
