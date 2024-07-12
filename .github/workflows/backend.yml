@@ -9,6 +9,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:16.3
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports: [ '5432:5432' ]
+
     defaults:
       run:
         working-directory: backend  # Set the global working directory
