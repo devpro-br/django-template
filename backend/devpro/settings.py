@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config, Csv
 
 import dj_database_url
 
@@ -21,14 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$yd9^=to3rg=(mf!022&vrfv*6tj6fb*kg41h4tdrr16))4ei0'
+SECRET_KEY = config('BACKEND_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('BACKEND_DEBUG', default=False, cast=bool)
 
 AUTH_USER_MODEL = 'base.User'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('BACKEND_ALLOWED_HOSTS', default='', cast=Csv())
 
 # Application definition
 
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'devpro.wsgi.application'
 
 DATABASES = {
     "default": dj_database_url.parse(
-        'postgres://postgres:postgres@localhost:5432/postgres',
+        config('DATABASE_URL'),
         conn_max_age=600,
         conn_health_checks=True,
     )

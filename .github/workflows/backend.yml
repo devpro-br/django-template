@@ -41,5 +41,8 @@ jobs:
       - name: Run Linter
         run: poetry run flake8 .
 
+      - name: Copy instance config variables
+        run: cp ../config/env-sample .env
+
       - name: Run backend Tests
         run: poetry run pytest --cache-clear

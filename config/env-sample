@@ -1,0 +1,6 @@
+BACKEND_SECRET_KEY=escolha-um-segredo-como-valor-para-o-django
+# SECURITY WARNING: don't run with debug turned on in production!
+BACKEND_DEBUG=False
+# Configure os dominios ou ips que sua aplicação vai rodar, separadas por vírgula
+BACKEND_ALLOWED_HOSTS=localhost,127.0.0.1
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres
