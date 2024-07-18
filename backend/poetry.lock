@@ -61,6 +61,20 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-min-custom-user"
+version = "0.2.0"
+description = "A project with a mininum fields Django Custom User"
+optional = false
+python-versions = "<4.0,>=3.12"
+files = [
+    {file = "django_min_custom_user-0.2.0-py3-none-any.whl", hash = "sha256:e32baf1c94d4f59e384346504570ae7922a4cd72ade862e44c254cafe794ee3b"},
+    {file = "django_min_custom_user-0.2.0.tar.gz", hash = "sha256:185c74a38fe46749b3d713f2e67c6e334273e8c3957b531f24e74f7aa40d750a"},
+]
+
+[package.dependencies]
+django = ">=5.0.7,<6.0.0"
+
+[[package]]
 name = "flake8"
 version = "7.1.0"
 description = "the modular source code checker: pep8 pyflakes and co"
@@ -257,4 +271,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "5dbcbba5f17b41c7a71f9faa7221bc63bfa4b4ba2f4e3b5ccccaff381d6ef958"
+content-hash = "58a6daed039bbfb30da480394f6829b35bb864bbf45f0ce2ee8ded4907d187f7"

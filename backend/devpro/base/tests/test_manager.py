@@ -1,12 +1,11 @@
 import pytest
 from django.contrib.auth import get_user_model
-
-from devpro.base.manager import UserManager
+from django_min_custom_user.manager import MinUserManager
 
 
 def test_user_has_customized_manager_instance():
     User = get_user_model()
-    assert isinstance(User.objects, UserManager)
+    assert isinstance(User.objects, MinUserManager)
 
 
 @pytest.mark.django_db
