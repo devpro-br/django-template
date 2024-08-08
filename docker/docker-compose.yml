@@ -1,6 +1,15 @@
 version: "3.3"
 
 services:
+  nginx:
+    container_name: nginx
+    image: nginx:1.27.0
+    volumes:
+      - ./staticfiles:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 80:80
+    network_mode: host
   database:
     container_name: postgres
     image: postgres:16.3
