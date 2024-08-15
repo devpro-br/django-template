@@ -117,8 +117,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_ROOT = BASE_DIR.parent/'docker/staticfiles/static'
-STATIC_URL = 'static/'
+
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', default='').strip()
+
+if AWS_STORAGE_BUCKET_NAME == '':
+    # Configuração para coletar estáticos para o Nginx
+    STATIC_URL = 'static/'
+    STATIC_ROOT = BASE_DIR.parent / 'docker/staticfiles/static'
+else:
+    STATIC_URL = f'//{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
+
+    AWS_S3_ACCESS_KEY_ID = config('AWS_S3_ACCESS_KEY_ID')
+    AWS_S3_SECRET_ACCESS_KEY = config('AWS_S3_SECRET_ACCESS_KEY')
+    STORAGES = {
+        "staticfiles": {
+            "BACKEND": "storages.backends.s3.S3Storage",
+            "OPTIONS": {
+                'default_acl': 'public-read',
+                'location': 'static',
+            },
+        },
+    }
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
