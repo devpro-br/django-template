@@ -124,17 +124,27 @@ if AWS_STORAGE_BUCKET_NAME == '':
     # Configuração para coletar estáticos para o Nginx
     STATIC_URL = 'static/'
     STATIC_ROOT = BASE_DIR.parent / 'docker/staticfiles/static'
+    MEDIA_ROOT = BASE_DIR.parent / 'docker/mediafiles'
+    MEDIA_URL = '/mediafiles/'
 else:
     STATIC_URL = f'//{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
 
     AWS_S3_ACCESS_KEY_ID = config('AWS_S3_ACCESS_KEY_ID')
     AWS_S3_SECRET_ACCESS_KEY = config('AWS_S3_SECRET_ACCESS_KEY')
     STORAGES = {
+        "default": {
+            "BACKEND": "devpro.s3_file_handlers.S3FileStorage",
+            "OPTIONS": {
+                'default_acl': 'private',
+                'location': 'media',
+            },
+        },
         "staticfiles": {
             "BACKEND": "storages.backends.s3.S3Storage",
             "OPTIONS": {
                 'default_acl': 'public-read',
                 'location': 'static',
+                'querystring_auth': False
             },
         },
     }

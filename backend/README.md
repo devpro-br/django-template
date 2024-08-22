@@ -43,3 +43,19 @@ acordo com sua necessidade.
 Para ler configurações de instância esse projeto usa a lib [python decouple](https://pypi.org/project/python-decouple/).
 Ela é importada no arquivo settings.py
 
+## Uploads de arquivos
+
+O projeto está configurado para gravar arquivos publicos ou privados. Por isso, se usar ImageField ou FileField,
+O parâmetro "upldat_to" precisar ter prefixo "public" para arquivos que sejam publicos e "private" para privados. Exemplos:
+
+```python
+from django.db.models import Model, ImageField, FileField
+
+class UserProfile(Model):
+    avatar = ImageField(upload_to='public/base/avatars/', null=True, blank=True)
+
+class NotaFiscal(Model):
+    arquivo = FileField(upload_to='private/base/notas_fiscais/')
+
+```
+
