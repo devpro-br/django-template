@@ -131,6 +131,15 @@ if AWS_STORAGE_BUCKET_NAME == '':
     STATIC_ROOT = BASE_DIR.parent / 'docker/staticfiles/static'
     MEDIA_ROOT = BASE_DIR.parent / 'docker/mediafiles'
     MEDIA_URL = '/mediafiles/'
+    # Muda a configuração de upload de arquivos locais para bater com produção
+    STORAGES = {
+        "default": {
+            "BACKEND": "devpro.s3_file_handlers.FileSystemWithValidationStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        },
+    }
 else:
     STATIC_URL = f'//{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
 
