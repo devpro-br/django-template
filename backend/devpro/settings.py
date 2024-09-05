@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config, Csv
 
 import dj_database_url
+from decouple import config, Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -134,7 +134,7 @@ if AWS_STORAGE_BUCKET_NAME == '':
     # Muda a configuração de upload de arquivos locais para bater com produção
     STORAGES = {
         "default": {
-            "BACKEND": "devpro.s3_file_handlers.FileSystemWithValidationStorage",
+            "BACKEND": "devpro_s3_storages.handlers.FileSystemWithValidationStorage",
         },
         "staticfiles": {
             "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
@@ -147,7 +147,7 @@ else:
     AWS_S3_SECRET_ACCESS_KEY = config('AWS_S3_SECRET_ACCESS_KEY')
     STORAGES = {
         "default": {
-            "BACKEND": "devpro.s3_file_handlers.S3FileStorage",
+            "BACKEND": "devpro_s3_storages.handlers.S3FileStorage",
             "OPTIONS": {
                 'default_acl': 'private',
                 'location': 'media',

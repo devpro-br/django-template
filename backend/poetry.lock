@@ -64,6 +64,21 @@ files = [
 ]
 
 [[package]]
+name = "devpro-s3-storages"
+version = "0.1.0"
+description = "Django Project to handle Static and Upload Files on s3 the right way"
+optional = false
+python-versions = "<4.0,>=3.12"
+files = [
+    {file = "devpro_s3_storages-0.1.0-py3-none-any.whl", hash = "sha256:99eab1b444864e3e675bc0e5d00706846c10f8faba3db3c68007bd3037f17413"},
+    {file = "devpro_s3_storages-0.1.0.tar.gz", hash = "sha256:ec273c8685aa2387ca588fb563908824aa420093965a3ca856219d9dd88fae53"},
+]
+
+[package.dependencies]
+django = ">=5.1.1,<6.0.0"
+django-storages = {version = ">=1.14.4,<2.0.0", extras = ["s3"]}
+
+[[package]]
 name = "dj-database-url"
 version = "2.2.0"
 description = "Use Database URLs in your Django Application."
@@ -80,17 +95,17 @@ typing_extensions = ">=3.10.0.0"
 
 [[package]]
 name = "django"
-version = "5.0.7"
+version = "5.1.1"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 optional = false
 python-versions = ">=3.10"
 files = [
-    {file = "Django-5.0.7-py3-none-any.whl", hash = "sha256:f216510ace3de5de01329463a315a629f33480e893a9024fc93d8c32c22913da"},
-    {file = "Django-5.0.7.tar.gz", hash = "sha256:bd4505cae0b9bd642313e8fb71810893df5dc2ffcacaa67a33af2d5cd61888f2"},
+    {file = "Django-5.1.1-py3-none-any.whl", hash = "sha256:71603f27dac22a6533fb38d83072eea9ddb4017fead6f67f2562a40402d61c3f"},
+    {file = "Django-5.1.1.tar.gz", hash = "sha256:021ffb7fdab3d2d388bc8c7c2434eb9c1f6f4d09e6119010bbb1694dda286bc2"},
 ]
 
 [package.dependencies]
-asgiref = ">=3.7.0,<4"
+asgiref = ">=3.8.1,<4"
 sqlparse = ">=0.3.1"
 tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 
@@ -500,4 +515,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "f9b78727085831dd1777bdf88708cc9fb32f152a9ed2316f842ee7eb219b923c"
+content-hash = "23776fbffd16c6a7b67f80016a271505670ea709c00e206c13549718e6c7990e"
