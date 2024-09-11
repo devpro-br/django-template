@@ -32,6 +32,22 @@ Tamanho de linha pode ter até 120 caracteres. Para ver o relatório do linter r
 flake8 .
 ```
 
+Para rodar os testes automáticos execute:
+
+```bash
+pytest devpro
+```
+
+# Shell do DJango
+
+Essa template vem com [Django Extensions](https://django-extensions.readthedocs.io/) instalado. Então se recomenda usar
+Para rodar sessão de shell interativa
+
+```bash
+python manage.py shell_plus --print-sql
+```
+
+
 # Usuário padrão
 
 Nesse projeto o usuário foi customizado. Ele não tem username nem last_name como o usuário padrão do Django.
