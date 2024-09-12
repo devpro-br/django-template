@@ -45,4 +45,4 @@ jobs:
         run: cp ../config/env-sample .env
 
       - name: Run backend Tests
-        run: poetry run pytest --cache-clear
+        run: poetry run pytest devpro --cov=devpro --cov-fail-under=92 --cache-clear
