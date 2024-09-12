@@ -38,6 +38,12 @@ Para rodar os testes automáticos execute:
 pytest devpro
 ```
 
+Para gerar relatório de cobertura:
+
+```bash
+pytest devpro/ --cov devpro/ --cov-report html
+```
+
 # Shell do DJango
 
 Essa template vem com [Django Extensions](https://django-extensions.readthedocs.io/) instalado. Então se recomenda usar
